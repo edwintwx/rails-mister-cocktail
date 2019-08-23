@@ -7,14 +7,14 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag "application" %>    <!-- from app/javascript/packs/application.js -->
+    <%= stylesheet_link_tag    'application', media: 'all' %>
   </head>
 
   <body>
     <div class="main p-5 mx-auto">
       <%= yield %>
+      <%= javascript_include_tag 'application' %>
+      <%= javascript_pack_tag "application" %>    <!-- from app/javascript/packs/application.js -->
     </div>
   </body>
 </html>
