@@ -13,11 +13,15 @@ class CocktailsController < ApplicationController
   end
 
   def edit
-
+    @ingredients = Ingredient.all
+    @cocktail = Cocktail.find(params[:id])
   end
 
   def update
+    @cocktail = Cocktail.find(params[:id])
+    @cocktail.update(cocktail_params)
 
+    redirect_to cocktail_path(@cocktail)
   end
 
   def create

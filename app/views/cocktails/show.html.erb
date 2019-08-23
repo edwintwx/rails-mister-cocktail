@@ -1,24 +1,25 @@
 <h1>This is an awesome cocktail</h1>
 <div class="row">
-  <div class="col-3">
-    <div class="card" style="width: 18rem;">
-      <img class="card-img-top" src="https://source.unsplash.com/600x400/?cocktail" alt="Card image cap">
-      <div class="card-body">
-        <h5 class="card-title"><%= @cocktail.name %></h5>
-        <p class="card-text">
-          <h6>Ingredients</h6>
-          <ul class="list-unstyled">
-            <% @cocktail.doses.each do |d| %>
-            <li><%= d.description %> of <%= d.ingredient.name %></li>
-            <% end %>
-          </ul>
-        </p>
-        <%= link_to "Add Ingredient-WIP", edit_cocktail_path, class: "btn btn-secondary mt-3" %>
-      </div>
+  <div class="card mb-3">
+    <img class="card-img-top" src="https://source.unsplash.com/600x400/?cocktail" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title"><%= @cocktail.name %></h5>
+      <%= link_to "Edit Cocktail Name", edit_cocktail_path, class: "btn btn-secondary mt-3" %>
+      <p class="card-text">
+        <h6>Ingredients</h6>
+        <ul class="list-unstyled">
+          <% @cocktail.doses.each do |d| %>
+          <li><%= d.description %> of <%= d.ingredient.name %></li>
+          <% end %>
+        </ul>
+        <%= link_to "Add Ingredient-WIP", new_cocktail_dose_path(@cocktail), class: "btn btn-secondary mt-3" %>
+      </p>
+      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
     </div>
-    <%= link_to "<< All Cocktails", cocktails_path, class: "btn btn-primary mt-3" %>
-    <%= link_to "Edit Cocktail", edit_cocktail_path, class: "btn btn-secondary mt-3" %>
   </div>
+  </div>
+  <%= link_to "<< All Cocktails", cocktails_path, class: "btn btn-primary mt-3" %>
+
 </div>
 
 

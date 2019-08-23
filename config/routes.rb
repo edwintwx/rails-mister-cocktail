@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
 
-  resources :cocktails#, only: [:index, :show, :new, :create]
+  resources :cocktails do #, only: [:index, :show, :new, :create]
+    resources :doses, only: [ :index, :new, :create ]
+  end
+
+  resources :doses, only:  [ :show, :edit, :update, :destroy ]
 
   root 'cocktails#index'
   # A user can see the list of cocktails

@@ -1,20 +1,37 @@
-<div class="row">
-  <h1>Add New Cocktail</h1>
-</div>
-<div class="row">
-  <div class="col-9">
-    <%= simple_form_for [@cocktail] do |f| %>
-      <%= f.error_notification %>
-      <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+<div class="container mx-auto w-50">
+  <div class="row">
+    <h1>Add New Cocktail</h1>
+  </div>
+  <div class="row">
+    <%= simple_form_for(@cocktail, html: {class: "p-3 border shadow"}) do |f| %>
+    <%= f.error_notification %>
+    <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+    <div class="form-group">
       <div class="form-inputs">
         <%= f.input :name %>
-        <%= f.input :doses, placeholder: 'Dose', collection: ['1cl', '2cl', '3cl', '4cl', '5cl'], prompt: "Select amount" %>
-
-        <%= f.input :ingredients, placeholder: 'Ingredient', collection: @ingredients.pluck(:name), prompt: "Select ingredient" %>
       </div>
-      <div class="form-actions">
-        <%= f.submit "Submit new cocktail", class: "btn btn-primary" %>
+    </div>
+    <div class="form-dose">
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <div class="form-inputs">
+          <%= f.input :doses, placeholder: 'Dose', collection: ['1cl', '2cl', '3cl', '4cl', '5cl'], prompt: "Select amount" %>
+          </div>
+        </div>
+        <div class="form-group col-md-6">
+          <div class="form-inputs">
+            <%= f.input :ingredients, placeholder: 'Ingredient', collection: @ingredients.pluck(:name), prompt: "Select ingredient" %>
+          </div>
+        </div>
       </div>
+    </div>
+    <a href="#" id="add-ingredient">+ Ingredient (WIP)</a>
+    <div class="form-actions">
+      <%= f.submit "Submit new cocktail", class: "btn btn-primary" %>
+    </div>
     <% end %>
+  </div>
+  <div class="row">
+    <%= link_to "<< All Cocktails", cocktails_path, class: "btn btn-primary mt-3" %>
   </div>
 </div>

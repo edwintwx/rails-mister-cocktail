@@ -1,6 +1,6 @@
 <div class="row d-flex justify-content-between align-items-center">
-  <div class="col"><h1>All Cocktails</h1></div>
-  <div class="col"><%= link_to "New Cocktail", new_cocktail_path, class: "btn btn-primary" %></div>
+  <div class="col-9"><h1>All Cocktails</h1></div>
+  <div class="col-3"><%= link_to "Add New Cocktail", new_cocktail_path, class: "btn btn-primary" %></div>
 </div>
 <div class="row d-flex justify-content-around">
   <% @cocktails.each do |c| %>
